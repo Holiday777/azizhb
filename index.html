@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Aziz Happy Birthday!</title>
   <style>
     body {
+      overflow: hidden;
       margin: 0;
       background-color: rgb(35, 36, 41);
     }
@@ -43,12 +44,14 @@
       left: 50%;
       border: none;
       padding: 0;
+      max-width: 300px;
+      width: 100%;
     }
 
     .layer {
       display: flex;
       height: 40px;
-      width: 346px;
+      width: 100%;
       border: 1px solid #262626;
       background-color: #343434;
     }
@@ -90,7 +93,7 @@
   <div class="wrapper">
     <div class="postcard"></div>
   </div>
-  <button data-toggle class="toggle">
+  <button type="button" data-toggle class="toggle">
     <span class="layer">
       <span class="layer__visibility"></span>
       <span class="layer__info">
@@ -100,12 +103,13 @@
     </span>
   </button>
   <script>
-    const toggle = document.querySelector('[data-toggle');
+    const toggle = document.querySelector('[data-toggle]');
     const body = document.body;
     const postCardActiveClass = 'is-overlayed';
-    toggle.addEventListener('click', () => {
+    const toggleHandler = () => {
       body.classList.toggle(postCardActiveClass);
-    });
+    };
+    toggle.addEventListener('click', toggleHandler);
   </script>
 </body>
 </html>
