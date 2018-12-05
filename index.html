@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(35, 36, 41);
+    }
+
+    .wrapper {
+      height: 100vh;
+    }
+
+    .postcard {
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+      background-image: url('postcard.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .is-overlayed .wrapper::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .toggle {
+      transform: translateX(-50%);
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      border: none;
+      padding: 0;
+    }
+
+    .layer {
+      display: flex;
+      height: 40px;
+      width: 346px;
+      border: 1px solid #262626;
+      background-color: #343434;
+    }
+
+    .layer__visibility {
+      width: 30px;
+      height: 100%
+    }
+
+    .is-overlayed .layer__visibility {
+      background-image: url('eye.png');
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .layer__info {
+      display: flex;
+      align-items: center;
+      border-left: 1px solid #262626;
+    }
+
+    .layer__preview {
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin-left: 4px;
+      margin-right: 8px;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .layer__name {
+      font-family: Arial;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="is-overlayed">
+  <div class="wrapper">
+    <div class="postcard"></div>
+  </div>
+  <button data-toggle class="toggle">
+    <span class="layer">
+      <span class="layer__visibility"></span>
+      <span class="layer__info">
+        <span class="layer__preview"></span>
+        <span class="layer__name">Overlay</span>
+      </span>
+    </span>
+  </button>
+  <script>
+    const toggle = document.querySelector('[data-toggle');
+    const body = document.body;
+    const postCardActiveClass = 'is-overlayed';
+    toggle.addEventListener('click', () => {
+      body.classList.toggle(postCardActiveClass);
+    });
+  </script>
+</body>
+</html>
